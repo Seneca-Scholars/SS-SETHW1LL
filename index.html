@@ -5,7 +5,7 @@
     <style>
 
       img {
-        width: 200px;
+        width: 270px;
         border-radius: 50px;
         float: left;
         margin-right: 10px;
@@ -13,34 +13,141 @@
 
       .username {
         font-weight: bold;
+        font-size: 30px;
       }
 
-      h1 {
-         text-align: center;
-         font-size: 35px;
+
+      .headline {
+        color: rgb(0, 0, 0);
+      }
+
+      .headline span {
+        font-family: 'Brandon Text', Helvetica, Arial;
+        font-size: 36px;
+        font-weight: 700px;
+       line-height: 56px;
+        background-color: #DD3300;
+      }
+
+
+      .money
+      {
+        float: center;
+        text-size-adjust: 1000;
+      }
+
+      .topMark {
+         text-align: left;
+         font-size: 40px;
          color: rgb(255, 255, 255);
-         background-color: black;
-         border-radius: 150px;
+         background-color: rgb(49, 49, 49);
+         font-family: 'Times New Roman', Times, serif;
+         padding:25px 5px;;
+         border: 5px solid;
         }
 
       h2{
         text-align: center;
+        font-size: 40px;
+        margin-bottom: 40px;
+        background-color: blue;
+        border-radius: 760px;
+        width: 100%;
         }
+
+      h3{
+        float: left;
+      }
     </style>
   </head>
   <body>
     <header>
-    <h1> My Website </h1>
+    <h1 class = "topMark"> Seth </h1>
     </header>
+<!-- This is code to make text wrap around -->
+<div class="headline">
+      <span></span>
+     </div>
+<!-- This is code to make text wrap around -->
+
     <img src="images/S.WilliamsPhoto1.jpg" alt="An image of Seth Williams"/>
       <p class="username">@seththatside</p>
      <p>Still a Work in Progress!</p>
   <div>
      <h2>Overview</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quas error architecto, molestias itaque beatae qui tempora dolorum debitis, aliquam amet cupiditate? Ipsa laudantium labore consequuntur odit magni modi repudiandae at mollitia libero porro ut voluptatem temporibus obcaecati illo enim tempore deserunt possimus nemo velit, repellat amet provident. Recusandae, laudantium! ipsum dolor sit amet consectetur adipisicing elit. Qui placeat eveniet itaque dicta, fuga possimus aliquid dolor cumque hic ab. Quisquam velit ea quod odit distinctio cupiditate? Laborum, alias suscipit. </p>
-    </div>
-      <h3> About Me </h3>
-      <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium reprehenderit perspiciatis commodi et quo rem eum ducimus dolorem nobis nemo ea inventore amet rerum neque corporis, error veniam debitis dolores distinctio culpa. Id eveniet, consequatur repellendus nulla ex perferendis officia!</p>
-      <button type="button" onclick="N/A">Click Here</button>
+    </div> 
+    <br>
+      <h3> About Me :</h3>
+      <p class="money"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium reprehenderit perspiciatis commodi et quo rem eum ducimus dolorem nobis nemo ea inventore amet rerum neque corporis, error veniam debitis dolores distinctio culpa. Id eveniet, consequatur repellendus nulla ex perferendis officia!</p>
+
+
+      <br>
+
+<!-- This is how to make the form -->
+
+      <div>
+    <form action="results.html" method="GET">
+      <div>
+        <label for="name"> Name </label>
+  <!-- The type specifies which division is used the name = name thing allows for you to click plus id -->
+        <input type= "text" name="name" id="name" placeholder="username">
+  <!-- You can do required so that they have to enter the password -->
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type = "email" name="email" id="email">
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <input type ="number" name="age" id="age" min="1" max ="200" >
+      </div>
+      <div>
+        <label> Password 
+  <!-- Type Password automatically makes it so you can hide the letters in the website  -->
+        <input type="password" name="password">
+        </label>
+      </div>
+      
+      <button type="reset"> Reset </button>
+      <button type="submit"> Submit </button>
+
+
+  <!-- The type = submit allows it to you know submit -->
+  </form>
+  </div>
+   
+  <div>
+    <body>
+      <h2>
+        Projects
+      </h2>
+      <li>
+        <ol>
+          <p> Functions w returns </p>
+          <p> Eight Ball Projects </p>
+        </ol>
+      </li>
+      <script> 
+// PLANT NEEDS WATER PROJECT
+const plantNeedsWater = function(day){
+  if (day === 'Wednesday'){
+    return true;
+  } else{
+    return false;
+  };
+};
+
+plantNeedsWater('Tuesday');
+console.log(plantNeedsWater('Tuesday'));
+// PLANT NEEDS WATER PROJECT
+
+
+
+
+
+      </script>
+    </body>
+  </div>
     </body>
 </html>
