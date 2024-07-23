@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator for Waji</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="everything">
+        <div class="calculator">
+            <div class="calculator__display">0</div>
+            <div class="calculator__keys">
+                <button class="number" data-value="7">7</button>
+                <button class="number" data-value="8">8</button>
+                <button class="number" data-value="9">9</button>
+                <button class="operator" data-action="multiply">*</button>
+
+                <button class="number">4</button>
+                <button class="number">5</button>
+                <button class="number">6</button>
+                <button class="operator" data-action="subtract">-</button>
+
+                <button class="number">1</button>
+                <button class="number">2</button>
+                <button class="number">3</button>
+                <button class="operator" data-action="add">+</button>
+
+                <button class="number">0</button>
+                <button class="decimal" data-action="decimal">.</button>
+                <button class="operator" data-action="equal">=</button>
+                <button class="operator" data-action="divide">/</button>
+
+                <button class="clear" data-action="clear">C</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Storing the calculator as the html stuff
+        const calculator = document.querySelector('.calculator')
+        const keys = calculator.querySelector('.calculator__keys')
+        const display = document.querySelector('.calculator__display')
+
+
+                //using the data library and using that to make it in html
+             keys.addEventListener('click', e => {
+                if (e.target.matches('button')) {
+                 const key = e.target
+                 const action = key.dataset.action
+                 const keyContent = key.textContent
+                 const displayedNum = display.textContent //calling the display that is defined above as (0)
+                        console.log(displayedNum)
+                         if(!action){
+                            if(displayedNum === '0'){
+                                display.textContent = keyContent
+                            } else{
+                                display.textContent = displayedNum + keyContent
+                            }
+                        }
+                     }
+                 })
+
+        //target it one of the parameters of e(function)
+        // console.log(action)
+
+
+
+        
+    </script>
+</body>
+</html>

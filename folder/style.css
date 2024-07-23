@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url("https://v3.cdnpk.net/videvo_files/video/free/2014-08/large_preview/Earth_Zoom_Out.mp4?token=exp=1721759050~hmac=ec2378f5bfa6a55c18718210be50023875174e1c8f392538739da86478118fdf") no-repeat center center fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; /* Ensure no margin outside the body */
+}
+
+.everything {
+    background-color: #3b3333;
+    border-radius: 8px;
+    padding: 20px;
+    width: 320px;
+}
+
+.calculator {
+    text-align: center;
+}
+
+.calculator__display {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 2em;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: right;
+    height: 60px; /* Adjust height to fit the display properly */
+}
+
+.calculator__keys {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+button {
+    background-color: #f0f0f0; /* Light gray background */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 15px 0;
+}
+
+button:hover {
+    background-color: #ccc; /* Darker gray on hover */
+}
+
+button:active {
+    background-color: #ccc; /* Even darker gray when pressed */
+}
+
+.clear {
+    grid-column: span 2; /* Make the clear button span two columns */
+}
