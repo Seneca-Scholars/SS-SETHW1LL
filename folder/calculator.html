@@ -15,17 +15,17 @@
                 <button class="number" data-value="9">9</button>
                 <button class="operator" data-action="multiply">*</button>
 
-                <button class="number">4</button>
-                <button class="number">5</button>
-                <button class="number">6</button>
+                <button class="number" data-value="4">4</button>
+                <button class="number" data-value="5">5</button>
+                <button class="number" data-value="6">6</button>
                 <button class="operator" data-action="subtract">-</button>
 
-                <button class="number">1</button>
-                <button class="number">2</button>
-                <button class="number">3</button>
+                <button class="number" data-value="1">1</button>
+                <button class="number" data-value="2">2</button>
+                <button class="number" data-value="3">3</button>
                 <button class="operator" data-action="add">+</button>
 
-                <button class="number">0</button>
+                <button class="number" data-value="0">0</button>
                 <button class="decimal" data-action="decimal">.</button>
                 <button class="operator" data-action="equal">=</button>
                 <button class="operator" data-action="divide">/</button>
@@ -36,36 +36,108 @@
     </div>
 
     <script>
-        // Storing the calculator as the html stuff
-        const calculator = document.querySelector('.calculator')
-        const keys = calculator.querySelector('.calculator__keys')
-        const display = document.querySelector('.calculator__display')
+const calculator = document.querySelector('.calculator'); // Selecting the calculator container
+const keys = calculator.querySelector('.calculator__keys'); // Selecting the keys container
+const display = calculator.querySelector('.calculator__display'); // Selecting the display area
 
+keys.addEventListener('click', e => { // Adding a click event listener to the keys container
+    if (!e.target.matches('button')) return; // Exit if the clicked element is not a button
 
-                //using the data library and using that to make it in html
-             keys.addEventListener('click', e => {
-                if (e.target.matches('button')) {
-                 const key = e.target
-                 const action = key.dataset.action
-                 const keyContent = key.textContent
-                 const displayedNum = display.textContent //calling the display that is defined above as (0)
-                        console.log(displayedNum)
-                         if(!action){
-                            if(displayedNum === '0'){
-                                display.textContent = keyContent
-                            } else{
-                                display.textContent = displayedNum + keyContent
-                            }
-                        }
-                     }
-                 })
+    const key = e.target; // Get the clicked button element
+    const action = key.dataset.action; // Get the action attribute of the button (e.g., add, subtract, etc.)
+    const keyContent = key.textContent; // Get the text content of the button (e.g., number or operator)
+    let displayedNum = display.textContent; // Get the current content of the display
 
-        //target it one of the parameters of e(function)
-        // console.log(action)
+    // Clear 'is-depressed' class from all buttons
+    Array.from(keys.children).forEach(k => k.classList.remove('is-depressed'));
 
+    // Clear button handling
+    if (action === 'clear') {
+        display.textContent = '0'; // Reset display to '0'
+        delete calculator.dataset.previousKeyType; // Clear previousKeyType data attribute
+        delete calculator.dataset.firstValue; // Clear firstValue data attribute
+        delete calculator.dataset.operator; // Clear operator data attribute
+        return; // Exit the function
+    }
 
+    // Decimal button handling
+    if (action === 'decimal') {
+        if (!displayedNum.includes('.')) { // Check if display already has a decimal
+            display.textContent = displayedNum + '.'; // Append decimal to display
+        }
+        return; // Exit the function
+    }
 
-        
+    // Operator buttons (+, -, *, /) handling
+    if (action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide') {
+        const firstValue = calculator.dataset.firstValue; // Get the firstValue from dataset
+        const operator = calculator.dataset.operator; // Get the operator from dataset
+        const secondValue = displayedNum; // Get the current display content as secondValue
+
+        // Perform calculation if firstValue, operator, and previousKeyType are valid
+        if (firstValue && operator && calculator.dataset.previousKeyType !== 'operator' && calculator.dataset.previousKeyType !== 'calculate') {
+            display.textContent = calculate(firstValue, operator, secondValue); // Perform calculation and update display
+            calculator.dataset.firstValue = display.textContent; // Store result as firstValue for future calculations
+        } else {
+            calculator.dataset.firstValue = displayedNum; // Store displayedNum as firstValue for next operation
+        }
+
+        key.classList.add('is-depressed'); // Add 'is-depressed' class to the clicked operator button
+        calculator.dataset.previousKeyType = 'operator'; // Update previousKeyType to 'operator'
+        calculator.dataset.operator = action; // Store current action as operator
+        return; // Exit the function
+    }
+
+    // Equal button handling
+    if (action === 'equal') {
+        const firstValue = calculator.dataset.firstValue; // Get the firstValue from dataset
+        const operator = calculator.dataset.operator; // Get the operator from dataset
+        const secondValue = displayedNum; // Get the current display content as secondValue
+
+        // Perform calculation if firstValue exists
+        if (firstValue) {
+            display.textContent = calculate(firstValue, operator, secondValue); // Perform calculation and update display
+            delete calculator.dataset.previousKeyType; // Clear previousKeyType
+            delete calculator.dataset.firstValue; // Clear firstValue
+            delete calculator.dataset.operator; // Clear operator
+        }
+
+        calculator.dataset.previousKeyType = 'calculate'; // Update previousKeyType to 'calculate'
+        return; // Exit the function
+    }
+
+    // Number buttons handling
+    if (!action) {
+        // Update display content based on the key pressed
+        if (displayedNum === '0' || calculator.dataset.previousKeyType === 'operator' || calculator.dataset.previousKeyType === 'calculate') {
+            display.textContent = keyContent; // Replace '0' or previous operation with the new number
+        } else {
+            display.textContent = displayedNum + keyContent; // Append number to the current display content
+        }
+
+        calculator.dataset.previousKeyType = 'number'; // Update previousKeyType to 'number'
+    }
+});
+
+// Function to perform calculation based on operator and values
+function calculate(firstValue, operator, secondValue) {
+    const num1 = parseFloat(firstValue); // Convert firstValue to float
+    const num2 = parseFloat(secondValue); // Convert secondValue to float
+
+    switch (operator) {
+        case 'add':
+            return num1 + num2; // Return sum of num1 and num2
+        case 'subtract':
+            return num1 - num2; // Return difference of num1 and num2
+        case 'multiply':
+            return num1 * num2; // Return product of num1 and num2
+        case 'divide':
+            return num1 / num2; // Return quotient of num1 and num2
+        default:
+            return secondValue; // Return secondValue if no valid operator
+    }
+}
+
     </script>
 </body>
 </html>
