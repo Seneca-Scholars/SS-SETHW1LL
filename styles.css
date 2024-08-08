@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #151515;
+  height: 100vh;
+  color: white;
+}
+
+.navBar{
+  position:absolute;
+  right: 0vh;
+}
+nav {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 40px;
+
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 60px; /* fixed nav */
+}
+
+#addMovieButton {
+  display:block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #58b01d;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  font-size: large;
+}
+
+#addMovieButton:hover {
+  background-color: #45a300;
+}
+
+#movieButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+
+#movieButtons li {
+  margin: 10px;
+}
+
+
+#movieButtons button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  top: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#movieButtons button:hover {
+  background-color: #555;
+}
+
+#movieDetails {
+  max-width:900px;
+  margin: 20px auto;
+  top: 80px;
+  position: relative;
+  text-align: center;
+
+}
+
+#movieDetails img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 10px 0;
+}
+
+#formContainer {
+  display: none; /* visibility */
+}
+
+body{
+  background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url("https://theconsultingdetectivesblog.com/wp-content/uploads/2014/06/the-dark-knight-original.jpg");
+
+}
+
+
+.movieListButtons{
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 10px; 
+  bottom: 100px;
+}
+
+.background-image {
+  background: url('path-to-your-image.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+
+.logo {
+  font-family: "Sen", sans-serif;
+  font-size: 30px;
+  color: #58b01d;
+  position: absolute;
+  bottom: 0vh;
+
+}
+
+.classOpp{
+  font-family:Impact, 'Arial Narrow Bold', sans-serif;
+}

@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgb(42, 39, 39);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/movie-poster-1-collage-doug-siegel.jpg);
+     width: 100%;
+     height: 100vh;
+     font-family: "Roboto", sans-serif;
+
+}
+
+.navigation {
+    background:  rgba(4,9,30,0.7);
+    background: l;
+    width: 100%;
+    height: 50px;
+    padding: 30px;
+    font-family: "Sen", sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    margin-bottom: 30px;
+}
+.navigation a:hover {
+    text-decoration: underline;
+}
+
+.navigation a {
+    color: white;
+    margin-right: 50px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.form-container {
+    padding: 30px;
+    color: white;
+    font-size: 20px;
+    
+}
+
+
+.form-container h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: tomato;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+#movieForm {
+    display: flex;
+    flex-direction: column;
+
+}
+
+label {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+input:hover {
+    background-color: rgba(4,9,30,0.3);
+}
+
+input {
+    background: transparent;
+    color: white;
+    border: 2px solid;
+    border-radius: 10px;
+    width: 336px;
+    overflow: visible;
+    font-size: 19px;
+    padding: 15px;
+    margin-bottom: 2px;
+    cursor: text;
+}
+#description:hover {
+    background-color: rgba(4,9,30,0.2);
+}
+
+#description {
+    width: 500px;
+    height: 190px;
+    background: transparent;
+    color: white;
+    margin-bottom: 12px;
+    padding: 20px;
+    font-size: 19px;
+    border-radius: 10px;
+    border: 2px solid;
+    cursor: text;
+}
+
+.button-container {
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: hsl(120, 100%, 35%);
+}
+button:active {
+    background-color: hsl(120, 100%, 45%);
+}
+
+button {
+    width: 100px;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    text-align: center;
+    background-color: hsl(120, 100%, 25%);
+    color: white;
+    cursor: pointer;
+
+}
+
+#cancelButton:hover {
+    background-color: hsl(0, 100%, 60%);
+}
+
+#cancelButton:active {
+    background-color: hsl(0, 100%, 70%);
+}
+
+#cancelButton {
+    background-color: hsl(0, 100%, 40%);
+}
+
+
